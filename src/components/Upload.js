@@ -8,13 +8,21 @@ class Upload extends Component {
 
   uploadFile(event) {
     let file = event.target.files[0];
-    // console.log(file);
-    this.props.setFile(file);
+
+    if (file) {
+      let read = new FileReader();
+
+      read.readAsText(file);
+
+      read.onloadend = () => {
+        let result = read.result;
+        this.props.setFile(result);
+      };
+    }
 
     if (file) {
       let data = new FormData();
       data.append('file', file);
-      // axios.post('/files', data)...
     }
   }
 

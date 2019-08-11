@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import ReactMarkdown from 'react-markdown';
-import './App.css';
 import Upload from './components/Upload';
+import partitioner from './helpers/partitioner';
+
+import './styles/App.scss';
+import Presentation from './components/Presentation';
 
 class App extends Component {
   constructor(props) {
@@ -12,38 +14,30 @@ class App extends Component {
   }
 
   setFile = file => {
-    this.setState({
-      file: file
+    let result = new Promise((resolve, reject) => {
+      this.setState({
+        file: file
+      });
+      resolve();
     });
-  };
-
-  readFile = () => {
-    let file = this.state.file;
-    if (file) {
-      let read = new FileReader();
-
-      read.readAsText(file);
-
-      read.onloadend = () => {
-        let result = read.result;
-        console.log(result);
-        this.setState({
-          markdown: result
-        });
-      };
-    }
+    return result;
   };
 
   render() {
+    console.log(this.state);
+    let app = this.state.file ? (
+      <div className='doc'>
+        <Presentation slides={partitioner(this.state.file)} />
+      </div>
+    ) : (
+      <Upload setFile={this.setFile} />
+    );
+
     return (
       <div className='App'>
         <h1>Pradarsh</h1>
-        <Upload setFile={this.setFile} />
-        <ReactMarkdown source={this.state.markdown} />
-
+        {app}
         <hr />
-
-        {this.readFile()}
       </div>
     );
   }

@@ -1,0 +1,51 @@
+.App {
+  margin: 2rem;
+  font-family: 'Inter', sans-serif;
+  .presentation {
+    // margin-top: 5rem;
+    height: 80vh;
+    overflow: hidden;
+    .slide-content {
+      position: relative;
+      height: 80vh;
+      margin: 2rem;
+    }
+    .current-slide {
+      top: 2rem;
+    }
+    .next-slide {
+      // top: 10rem;
+    }
+    .next-slide-enter {
+      transform: translateY(0rem);
+      opacity: 0;
+    }
+    .next-slide-enter-active {
+      opacity: 1;
+      transform: translateY(-80vh);
+      transition: all 1000ms ease-in-out;
+    }
+    .next-slide-exit {
+      display: none;
+    }
+    .next-slide-exit-active {
+      display: none;
+    }
+
+    .current-slide-enter {
+      // display: none;
+    }
+    .current-slide-enter-active {
+      // display: none;
+    }
+    .current-slide-exit {
+      opacity: 1;
+      transform: translateY(0rem);
+    }
+    .current-slide-exit-active {
+      opacity: 0;
+      transform: translateY(-80vh);
+      transition: all 1000ms ease-in-out;
+    }
+  }
+}
