@@ -33,7 +33,6 @@ function Presentation({ slides, reset }) {
 
   useEffect(() => {
     let handleKeyPress = e => {
-      console.log(e);
       if (e.key === 'Enter' || e.key === ' ') {
         setInProp(true);
       } else if (e.key === 'q') {
@@ -56,11 +55,13 @@ function Presentation({ slides, reset }) {
     <div className='presentation'>
       <CSSTransition in={!inProp} timeout={1000} classNames='current-slide'>
         <div className='slide-content current-slide'>
-          {state.currentSlide ? (
-            <ReactMarkdown source={state.currentSlide} />
-          ) : (
-            <div className='empty' />
-          )}
+          <div className='slide-inner'>
+            {state.currentSlide ? (
+              <ReactMarkdown source={state.currentSlide} />
+            ) : (
+              <div className='empty' />
+            )}
+          </div>
         </div>
       </CSSTransition>
 
@@ -71,11 +72,13 @@ function Presentation({ slides, reset }) {
         onEntered={finishSlide}
       >
         <div className='slide-content next-slide'>
-          {state.nextSlide ? (
-            <ReactMarkdown source={state.nextSlide} />
-          ) : (
-            <div className='empty' />
-          )}
+          <div className='slide-inner'>
+            {state.nextSlide ? (
+              <ReactMarkdown source={state.nextSlide} />
+            ) : (
+              <div className='empty' />
+            )}
+          </div>
         </div>
       </CSSTransition>
     </div>
