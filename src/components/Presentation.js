@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { CSSTransition } from 'react-transition-group';
 
-function Presentation({ slides }) {
+function Presentation({ slides, reset }) {
   const [inProp, setInProp] = useState(false);
 
   let [state, setState] = useState({
@@ -32,7 +32,12 @@ function Presentation({ slides }) {
 
   useEffect(() => {
     document.body.addEventListener('keypress', e => {
-      setInProp(true);
+      console.log(e);
+      if (e.key === 'Enter' || e.key === ' ') {
+        setInProp(true);
+      } else if (e.key === 'q') {
+        reset(null);
+      }
     });
   });
 

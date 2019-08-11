@@ -27,19 +27,20 @@ class App extends Component {
     console.log(this.state);
     let app = this.state.file ? (
       <div className='doc'>
-        <Presentation slides={partitioner(this.state.file)} />
+        <Presentation
+          slides={partitioner(this.state.file)}
+          reset={this.setFile}
+        />
       </div>
     ) : (
-      <Upload setFile={this.setFile} />
-    );
-
-    return (
-      <div className='App'>
+      <div className='start'>
         <h1>Pradarsh</h1>
-        {app}
+        <Upload setFile={this.setFile} />
         <hr />
       </div>
     );
+
+    return <div className='App'>{app}</div>;
   }
 }
 

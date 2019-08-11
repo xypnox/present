@@ -9,15 +9,18 @@
       position: relative;
       height: 80vh;
       margin: 2rem;
+      background: #fff;
     }
     .current-slide {
       top: 2rem;
+      z-index: 10;
     }
     .next-slide {
       // top: 10rem;
+      z-index: 1;
     }
     .next-slide-enter {
-      transform: translateY(0rem);
+      transform: translateY(-70vh);
       opacity: 0;
     }
     .next-slide-enter-active {
