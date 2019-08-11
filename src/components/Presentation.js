@@ -4,6 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 
 function Presentation({ slides, reset }) {
   const [inProp, setInProp] = useState(false);
+  const [fullScreen, setFullScreen] = useState(false);
 
   let [state, setState] = useState({
     slides: slides,
@@ -31,14 +32,24 @@ function Presentation({ slides, reset }) {
   };
 
   useEffect(() => {
-    document.body.addEventListener('keypress', e => {
+    let handleKeyPress = e => {
       console.log(e);
       if (e.key === 'Enter' || e.key === ' ') {
         setInProp(true);
       } else if (e.key === 'q') {
+        document.body.removeEventListener('keypress', handleKeyPress);
+        document.exitFullscreen();
         reset(null);
+      } else if (e.key === 'f') {
+        if (fullScreen) {
+          document.exitFullscreen();
+        } else {
+          document.body.requestFullscreen();
+        }
+        setFullScreen(!fullScreen);
       }
-    });
+    };
+    document.body.addEventListener('keypress', handleKeyPress);
   });
 
   return (

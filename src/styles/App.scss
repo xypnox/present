@@ -1,6 +1,14 @@
+html,
+body {
+  margin: 0;
+  background: #fff;
+  min-height: 100vh;
+}
+
 .App {
   margin: 2rem;
   font-family: 'Inter', sans-serif;
+  font-size: 20px;
   .presentation {
     // margin-top: 5rem;
     height: 80vh;
