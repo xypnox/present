@@ -7,13 +7,10 @@ function partitioner(markdown) {
   let code = false;
 
   for (let i = 0; i < lines.length; i++) {
-    console.log(i, lines[i]);
-
     // Handle headings
     if (!code && lines[i].startsWith('#')) {
       if (slide) {
         slides.push(slide);
-        console.log('we break here');
         slide = '\n';
       }
       slide += '\n' + lines[i];
@@ -26,7 +23,6 @@ function partitioner(markdown) {
           code = !code;
           if (slide) {
             slides.push(slide);
-            console.log('we break here');
           }
           slide = lines[i];
         } else {
@@ -36,7 +32,6 @@ function partitioner(markdown) {
         slide += '\n' + lines[i];
         if (slide) {
           slides.push(slide);
-          console.log('we break here');
         }
         slides = '\n';
       }
@@ -49,7 +44,6 @@ function partitioner(markdown) {
       if (paraCount > 3) {
         if (slide) {
           slides.push(slide);
-          console.log('we break here');
         }
         paraCount = 0;
         slide = lines[i];
@@ -60,7 +54,6 @@ function partitioner(markdown) {
       slide += '\n';
     }
   }
-  console.log(slides);
   return slides;
 }
 

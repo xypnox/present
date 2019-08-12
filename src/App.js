@@ -24,7 +24,6 @@ class App extends Component {
   };
 
   render() {
-    console.log(this.state);
     let app = this.state.file ? (
       <div className='doc'>
         <Presentation

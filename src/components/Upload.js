@@ -29,7 +29,10 @@ class Upload extends Component {
   render() {
     return (
       <span>
-        <input type='file' name='myFile' onChange={this.uploadFile} />
+        <div class='upload-btn-wrapper'>
+          <button class='btn'>Upload a file</button>
+          <input type='file' name='myfile' onChange={this.uploadFile} />
+        </div>
       </span>
     );
   }

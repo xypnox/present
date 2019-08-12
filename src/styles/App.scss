@@ -13,10 +13,42 @@ body {
   font-family: 'Jost*', sans-serif;
   font-size: 24px;
 
+  .start {
+    padding: 4rem 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+      font-size: 5rem;
+    }
+    .upload-btn-wrapper {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      input[type='file'] {
+        font-size: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+      }
+      .btn {
+        color: white;
+        background: linear-gradient(#3b3baf, #8428a0);
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 1rem;
+        font-size: 1.5rem;
+        font-weight: 100;
+      }
+    }
+  }
+
   .presentation {
     height: 100vh;
     overflow: hidden;
-    padding: 4rem 10rem;
+    padding: 4rem 20rem;
 
     .slide-content {
       position: relative;
