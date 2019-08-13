@@ -8,7 +8,8 @@
     "react-dom": "^16.9.0",
     "react-markdown": "^4.1.0",
     "react-scripts": "3.0.1",
-    "react-transition-group": "^4.2.2"
+    "react-transition-group": "^4.2.2",
+    "remarkable": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

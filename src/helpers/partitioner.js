@@ -1,14 +1,16 @@
 function partitioner(markdown) {
   let lines = markdown.split('\n');
-  let slides = [];
 
+  let slides = [];
   let slide = '\n';
   let paraCount = 0;
   let code = false;
+  let table = false;
 
   for (let i = 0; i < lines.length; i++) {
     // Handle headings
-    if (!code && lines[i].startsWith('#')) {
+    console.log(lines[i], slides);
+    if (!code && !table && lines[i].startsWith('#')) {
       if (slide) {
         slides.push(slide);
         slide = '\n';
@@ -21,19 +23,41 @@ function partitioner(markdown) {
       if (code) {
         if (lines[i].startsWith('```')) {
           code = !code;
+          slide = lines[i];
           if (slide) {
             slides.push(slide);
           }
-          slide = lines[i];
         } else {
           slide += '\n' + lines[i];
         }
       } else {
+        code = !code;
         slide += '\n' + lines[i];
         if (slide) {
           slides.push(slide);
         }
-        slides = '\n';
+        slide = '\n';
+      }
+    }
+
+    // Handle Tables
+    else if (!code && (table || lines[i].startsWith('|'))) {
+      if (table) {
+        if (lines[i].startsWith('|')) {
+          slide += '\n' + lines[i];
+        } else {
+          if (slide) {
+            slides.push(slide);
+          }
+          table = !table;
+          slide = lines[i];
+        }
+      } else {
+        if (slide) {
+          slides.push(slide);
+        }
+        table = !table;
+        slide = lines[i];
       }
     }
 

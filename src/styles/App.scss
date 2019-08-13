@@ -48,11 +48,11 @@ body {
   .presentation {
     height: 100vh;
     overflow: hidden;
-    padding: 4rem 20rem;
+    padding: 0rem 20rem;
 
     .slide-content {
       position: relative;
-      height: 80vh;
+      height: 100vh;
       background: #fff;
       display: flex;
       justify-content: center;
@@ -112,7 +112,7 @@ body {
     }
     .next-slide-enter-active {
       opacity: 1;
-      transform: translateY(-80vh);
+      transform: translateY(-100vh);
       transition: all 1000ms ease-in-out;
     }
     .next-slide-exit {
@@ -134,7 +134,7 @@ body {
     }
     .current-slide-exit-active {
       opacity: 0;
-      transform: translateY(-80vh);
+      transform: translateY(-100vh);
       transition: all 1000ms ease-in-out;
     }
   }

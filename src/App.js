@@ -9,15 +9,18 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      file: null
+      file: null,
+      slides: null
     };
   }
 
   setFile = file => {
     let result = new Promise((resolve, reject) => {
       this.setState({
-        file: file
+        file: file,
+        slides: partitioner(file)
       });
+
       resolve();
     });
     return result;
@@ -26,10 +29,7 @@ class App extends Component {
   render() {
     let app = this.state.file ? (
       <div className='doc'>
-        <Presentation
-          slides={partitioner(this.state.file)}
-          reset={this.setFile}
-        />
+        <Presentation slides={this.state.slides} reset={this.setFile} />
       </div>
     ) : (
       <div className='start'>
