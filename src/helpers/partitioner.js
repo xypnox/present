@@ -9,7 +9,6 @@ function partitioner(markdown) {
 
   for (let i = 0; i < lines.length; i++) {
     // Handle headings
-    console.log(lines[i], slides);
     if (!code && !table && lines[i].startsWith('#')) {
       if (slide) {
         slides.push(slide);
@@ -63,7 +62,6 @@ function partitioner(markdown) {
 
     // Handle Regular Paragraphs Lists etc.
     else if (!code && lines[i]) {
-      // console.log(lines[i], paraCount);
       paraCount++;
       if (paraCount > 3) {
         if (slide) {
@@ -77,6 +75,10 @@ function partitioner(markdown) {
     } else {
       slide += '\n';
     }
+  }
+
+  if (slides) {
+    slides.push(slide);
   }
   return slides;
 }

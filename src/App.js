@@ -18,7 +18,7 @@ class App extends Component {
     let result = new Promise((resolve, reject) => {
       this.setState({
         file: file,
-        slides: partitioner(file)
+        slides: file && partitioner(file)
       });
 
       resolve();
