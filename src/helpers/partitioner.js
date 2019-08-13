@@ -75,10 +75,10 @@ function partitioner(markdown) {
     } else {
       slide += '\n';
     }
-  }
 
-  if (slides) {
-    slides.push(slide);
+    if (i === lines.length - 1) {
+      slides.push(slide);
+    }
   }
   return slides;
 }

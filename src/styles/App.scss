@@ -1,3 +1,15 @@
+// Theme
+
+$main-font: 'Jost*', sans-serif;
+$head-font: 'Jost*', sans-serif;
+
+$primary-color: #f28f79;
+$secondary-color: #656b8c;
+
+$primary-color-light: #f2cbbd;
+$secondary-color-light: #a9b5d9;
+$secondary-color-dark: #343140;
+
 * {
   box-sizing: border-box;
 }
@@ -10,7 +22,7 @@ body {
 }
 
 .App {
-  font-family: 'Jost*', sans-serif;
+  font-family: $main-font, sans-serif;
   font-size: 24px;
 
   .start {
@@ -35,12 +47,12 @@ body {
       }
       .btn {
         color: white;
-        background: linear-gradient(#3b3baf, #8428a0);
+        background: $secondary-color;
         border: none;
         padding: 1rem 2rem;
         border-radius: 1rem;
         font-size: 1.5rem;
-        font-weight: 100;
+        font-weight: normal;
       }
     }
   }
@@ -54,6 +66,7 @@ body {
       position: relative;
       height: 100vh;
       background: #fff;
+      color: #333;
       display: flex;
       justify-content: center;
       align-items: flex-start;
@@ -68,7 +81,9 @@ body {
       h3,
       h4,
       h5 {
+        font-family: $head-font;
         margin: 2.75rem 0 1rem;
+        color: #222222;
         // font-weight: 400;
         line-height: 1.15;
       }
@@ -107,13 +122,13 @@ body {
       z-index: 1;
     }
     .next-slide-enter {
-      transform: translateY(-70vh);
+      transform: translateY(-80vh) scale(0.75);
       opacity: 0;
     }
     .next-slide-enter-active {
       opacity: 1;
-      transform: translateY(-100vh);
-      transition: all 1000ms ease-in-out;
+      transform: translateY(-100vh) scale(1);
+      transition: all 1000ms ease;
     }
     .next-slide-exit {
       // display: none;
