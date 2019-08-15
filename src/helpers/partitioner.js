@@ -1,4 +1,4 @@
-function partitioner(markdown) {
+function partitioner(markdown, paralimit = 3) {
   let lines = markdown.split('\n');
 
   let slides = [];
@@ -63,7 +63,7 @@ function partitioner(markdown) {
     // Handle Regular Paragraphs Lists etc.
     else if (!code && lines[i]) {
       paraCount++;
-      if (paraCount > 3) {
+      if (paraCount >= paralimit) {
         if (slide) {
           slides.push(slide);
         }

@@ -4,6 +4,7 @@ import partitioner from './helpers/partitioner';
 
 import './styles/App.scss';
 import Presentation from './components/Presentation';
+import Settings from './components/settings';
 
 class App extends Component {
   constructor(props) {
@@ -36,6 +37,7 @@ class App extends Component {
         <h1>Pradarsh</h1>
         <Upload setFile={this.setFile} />
         <hr />
+        <Settings />
       </div>
     );
 

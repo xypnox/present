@@ -1,6 +1,6 @@
 // Theme
 
-$main-font: 'Jost*', sans-serif;
+$main-font: 'Aileron', sans-serif;
 $head-font: 'Jost*', sans-serif;
 
 $primary-color: #f28f79;
@@ -23,9 +23,11 @@ body {
 
 .App {
   font-family: $main-font, sans-serif;
+  font-weight: 300;
   font-size: 24px;
 
   .start {
+    font-family: $head-font;
     padding: 4rem 10rem;
     display: flex;
     flex-direction: column;
@@ -84,7 +86,7 @@ body {
         font-family: $head-font;
         margin: 2.75rem 0 1rem;
         color: #222222;
-        // font-weight: 400;
+        font-weight: 100;
         line-height: 1.15;
       }
 
