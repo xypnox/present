@@ -1,8 +1,8 @@
-# Pradarsh
+# Present
 
 This is a software to present slides.
 
-This renders markdown directly into presentable slides. This presentation itself is made in Pradarsh!
+This renders markdown directly into presentable slides. This presentation itself is made in Present!
 
 ## How to present a Markdown file?
 

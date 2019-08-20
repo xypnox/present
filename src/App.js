@@ -34,7 +34,7 @@ class App extends Component {
       </div>
     ) : (
       <div className='start'>
-        <h1>Pradarsh</h1>
+        <h1>Present</h1>
         <Upload setFile={this.setFile} />
         <hr />
         <Settings />

@@ -1,6 +1,6 @@
 <div align='center'>
     <h1>
-        Pradarsh
+        Present
     </h1>
     <i>A simple way to present your markdown files.</i>
 </div>
@@ -33,7 +33,7 @@ A close solution is Dropbox Paper's present document feature. But you have to si
 
 ## Aspiration
 
-Pradarsh aims to give you a no fuss solution to present your markdown files.
+Present aims to give you a no fuss solution to present your markdown files.
 
 ## How to use?
 
