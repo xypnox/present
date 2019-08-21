@@ -1,4 +1,4 @@
-function partitioner(markdown, paralimit = 3) {
+export default function partitioner(markdown, paralimit = 3) {
   let lines = markdown.split('\n');
 
   let slides = [];
@@ -82,5 +82,3 @@ function partitioner(markdown, paralimit = 3) {
   }
   return slides;
 }
-
-export default partitioner;

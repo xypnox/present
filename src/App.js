@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Upload from './components/Upload';
-import partitioner from './helpers/partitioner';
+import partitioner from './partition/partitioner';
 
 import './styles/App.scss';
 import Presentation from './components/Presentation';
