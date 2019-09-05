@@ -30,7 +30,7 @@ function densityText(markdown) {
   return Math.log(wordCount);
 }
 
-// This function returns the density value of any single markdown string passed to it
+// This function returns the type and density value of any single markdown string passed to it
 function densitySingle(markdown) {
   markdown = markdown.trim();
   let firstChar = markdown[0];
@@ -53,8 +53,8 @@ function densitySingle(markdown) {
   return { type: 'text', value: densityText(markdown) };
 }
 
-// This function returns the density of a set of markdown lines separated by `\n`
-// Note: This function does not handle codeblocks
+// This function returns the density value of a set of markdown lines separated by `\n`
+// Note: This function does not handle codeblocks, and does not care about type
 function density(markdown) {
   let densityVal = 0;
 
