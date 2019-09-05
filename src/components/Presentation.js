@@ -57,8 +57,10 @@ function Presentation({ slides, reset }) {
         setInProp(false);
         changePrevSlide();
       } else if (e.key === 'q') {
+        if (fullScreen) {
+          document.exitFullscreen();
+        }
         document.body.removeEventListener('keypress', handleKeyPress);
-        document.exitFullscreen();
         reset(null);
       } else if (e.key === 'f') {
         if (fullScreen) {

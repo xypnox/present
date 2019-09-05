@@ -1,84 +1,68 @@
-export default function partitioner(markdown, paralimit = 3) {
+import { densitySingle } from './density';
+
+export default function partitioner(
+  markdown,
+  setting = { densityLimit: 7, strict: false }
+) {
   let lines = markdown.split('\n');
 
   let slides = [];
-  let slide = '\n';
-  let paraCount = 0;
-  let code = false;
-  let table = false;
+  let slide = '';
+  let densityVal = 0;
+  let codeblock = false;
 
-  for (let i = 0; i < lines.length; i++) {
-    // Handle headings
-    if (!code && !table && lines[i].startsWith('#')) {
-      if (slide) {
+  // console.log(lines);
+
+  /*
+    We need to divide the markdown with equal density without breaking the blocks
+
+    Blocks are:
+
+      - Quotations
+      - Code
+      - Lists
+
+    In these, only code block can have a "empty line"
+
+    Thus we only need to track opening and closing of code, otherwise add to slide.
+
+    Check whether the density of slide is > slide limit.
+  */
+
+  for (let line of lines) {
+    if (setting.strict) {
+      if (line !== '---') {
+        slide += line + '\n';
+      } else {
         slides.push(slide);
-        slide = '\n';
-      }
-      slide += '\n' + lines[i];
-    }
-
-    // Handle code blocks
-    else if (code || lines[i].startsWith('```')) {
-      if (code) {
-        if (lines[i].startsWith('```')) {
-          code = !code;
-          slide = lines[i];
-          if (slide) {
-            slides.push(slide);
-          }
-        } else {
-          slide += '\n' + lines[i];
-        }
-      } else {
-        code = !code;
-        slide += '\n' + lines[i];
-        if (slide) {
-          slides.push(slide);
-        }
-        slide = '\n';
-      }
-    }
-
-    // Handle Tables
-    else if (!code && (table || lines[i].startsWith('|'))) {
-      if (table) {
-        if (lines[i].startsWith('|')) {
-          slide += '\n' + lines[i];
-        } else {
-          if (slide) {
-            slides.push(slide);
-          }
-          table = !table;
-          slide = lines[i];
-        }
-      } else {
-        if (slide) {
-          slides.push(slide);
-        }
-        table = !table;
-        slide = lines[i];
-      }
-    }
-
-    // Handle Regular Paragraphs Lists etc.
-    else if (!code && lines[i]) {
-      paraCount++;
-      if (paraCount >= paralimit) {
-        if (slide) {
-          slides.push(slide);
-        }
-        paraCount = 0;
-        slide = lines[i];
-      } else {
-        slide += '\n' + lines[i];
+        slide = '';
       }
     } else {
+      if (line.startsWith('```')) {
+        codeblock = !codeblock;
+        if (!codeblock) {
+          densityVal += 4;
+          slide += line;
+        }
+      } else if (line !== '' && !codeblock) {
+        densityVal += densitySingle(line);
+        slide += line;
+        // console.log(line, densityVal);
+      }
       slide += '\n';
-    }
 
-    if (i === lines.length - 1) {
-      slides.push(slide);
+      if ((line === '') & (densityVal > setting.densityLimit)) {
+        slides.push(slide);
+        slide = '';
+        densityVal = 0;
+      }
     }
   }
+
+  if (slide !== '') {
+    slides.push(slide);
+  }
+
+  console.log(slides);
   return slides;
 }
