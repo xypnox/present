@@ -10,12 +10,12 @@ function densityHead(markdown) {
     if (markdown[i] !== '#') {
       break;
     } else {
-      if (value > 4) {
-        value -= 2;
-      } else {
-        value--;
-      }
+      value--;
     }
+  }
+
+  if (value > 6) {
+    return 10;
   }
 
   return value;
@@ -34,16 +34,23 @@ function densityText(markdown) {
 function densitySingle(markdown) {
   markdown = markdown.trim();
   let firstChar = markdown[0];
+
   if (markdown === '') {
-    return 0;
+    return {
+      type: 'empty',
+      value: 0
+    };
   } else if (firstChar === '#') {
-    return densityHead(markdown);
+    return {
+      type: 'head',
+      value: densityHead(markdown)
+    };
   } else if (markdown.startsWith('> ')) {
-    return densityValue.blockquote;
+    return { type: 'quote', value: densityValue.blockquote };
   } else if (markdown.startsWith(`![`)) {
-    return densityValue.image;
+    return { type: 'image', value: densityValue.image };
   }
-  return densityText(markdown);
+  return { type: 'text', value: densityText(markdown) };
 }
 
 // This function returns the density of a set of markdown lines separated by `\n`
@@ -52,7 +59,7 @@ function density(markdown) {
   let densityVal = 0;
 
   for (let line of markdown.split('\n')) {
-    densityVal += densitySingle(line);
+    densityVal += densitySingle(line).value;
   }
 
   return densityVal;

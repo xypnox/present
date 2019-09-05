@@ -45,8 +45,17 @@ export default function partitioner(
           slide += line;
         }
       } else if (line !== '' && !codeblock) {
-        densityVal += densitySingle(line);
-        slide += line;
+        let dVal = densitySingle(line);
+
+        if (dVal.type === 'head') {
+          if (slide) {
+            slides.push(slide);
+          }
+          slide = line;
+        } else {
+          densityVal += dVal.value;
+          slide += line;
+        }
         // console.log(line, densityVal);
       }
       slide += '\n';
