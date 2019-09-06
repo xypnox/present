@@ -49,7 +49,7 @@ Hey, there are a few handy shortcuts to help you out:
 | `f`                       | Fullscreen Mode   |
 | `q`                       | Quit Presentation |
 
-## How does this magic work?
+## Is this magic?
 
 The functioning of the app is pretty basic and I still can't muster why anyone didn't do this first.
 

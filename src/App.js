@@ -39,7 +39,7 @@ class App extends Component {
           <div className='info'>
             <h1>Present</h1>
             <p>
-              Present Markdown files easily and effectively. With ❤, by{' '}
+              A simple way to present your markdown files. With ❤, by{' '}
               <a href='https://www.xypnox.com'>xypnox</a>
             </p>
           </div>
