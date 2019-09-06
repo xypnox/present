@@ -1,7 +1,16 @@
 // Theme
+@import url('https://rsms.me/inter/inter.css');
+html {
+  font-family: 'Inter', sans-serif;
+}
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: 'Inter var', sans-serif;
+  }
+}
 
-$main-font: 'Aileron', sans-serif;
-$head-font: 'Jost*', sans-serif;
+$main-font: 'Inter', sans-serif;
+$head-font: 'Inter', sans-serif;
 
 $primary-color: #f28f79;
 $secondary-color: #656b8c;
@@ -14,6 +23,8 @@ $secondary-color-dark: #343140;
   box-sizing: border-box;
 }
 
+@import 'presentation.scss';
+
 html,
 body {
   margin: 0;
@@ -23,23 +34,28 @@ body {
 
 .App {
   font-family: $main-font, sans-serif;
-  font-weight: 300;
+  font-weight: normal;
   font-size: 24px;
 
   .start {
     font-family: $head-font;
-    padding: 4rem 10rem;
+    margin: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    max-width: 1000px;
+    // align-items: center;
 
     h1 {
       font-size: 5rem;
+      margin: 0;
     }
     .upload-btn-wrapper {
       position: relative;
       overflow: hidden;
       display: inline-block;
+      margin: 1rem 0;
       input[type='file'] {
         font-size: 100px;
         position: absolute;
@@ -56,103 +72,6 @@ body {
         font-size: 1.5rem;
         font-weight: normal;
       }
-    }
-  }
-
-  .presentation {
-    height: 100vh;
-    overflow: hidden;
-    padding: 0rem 20rem;
-
-    .slide-content {
-      position: relative;
-      height: 100vh;
-      background: #fff;
-      color: #333;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      flex-direction: column;
-
-      p {
-        margin-bottom: 1.25em;
-      }
-
-      h1,
-      h2,
-      h3,
-      h4,
-      h5 {
-        font-family: $head-font;
-        margin: 2.75rem 0 1rem;
-        color: #222222;
-        font-weight: 100;
-        line-height: 1.15;
-      }
-
-      h1 {
-        margin-top: 0;
-        font-size: 3.052em;
-      }
-
-      h2 {
-        font-size: 2.441em;
-      }
-
-      h3 {
-        font-size: 1.953em;
-      }
-
-      h4 {
-        font-size: 1.563em;
-      }
-
-      h5 {
-        font-size: 1.25em;
-      }
-
-      small,
-      .text_small {
-        font-size: 0.8em;
-      }
-    }
-    .current-slide {
-      z-index: 10;
-    }
-    .next-slide {
-      // top: 10rem;
-      z-index: 1;
-    }
-    .next-slide-enter {
-      transform: translateY(-80vh) scale(0.75);
-      opacity: 0;
-    }
-    .next-slide-enter-active {
-      opacity: 1;
-      transform: translateY(-100vh) scale(1);
-      transition: all 1000ms ease;
-    }
-    .next-slide-exit {
-      // display: none;
-    }
-    .next-slide-exit-active {
-      // display: none;
-    }
-
-    .current-slide-enter {
-      // display: none;
-    }
-    .current-slide-enter-active {
-      // display: none;
-    }
-    .current-slide-exit {
-      opacity: 1;
-      transform: translateY(0rem);
-    }
-    .current-slide-exit-active {
-      opacity: 0;
-      transform: translateY(-100vh);
-      transition: all 1000ms ease-in-out;
     }
   }
 }
