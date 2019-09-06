@@ -2,6 +2,7 @@
     <h1>
         Present
     </h1>
+    <img src='public/icon.png' />
     <i>A simple way to present your markdown files.</i>
 </div>
 

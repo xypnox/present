@@ -34,8 +34,16 @@ class App extends Component {
       </div>
     ) : (
       <div className='start'>
-        <h1>Present</h1>
-        <p>Present Markdown files easily and effectively.</p>
+        <div className='flex'>
+          <img src='icon.svg' id='icon' alt='' />
+          <div className='info'>
+            <h1>Present</h1>
+            <p>
+              Present Markdown files easily and effectively. With ❤, by{' '}
+              <a href='https://www.xypnox.com'>xypnox</a>
+            </p>
+          </div>
+        </div>
         <Upload setFile={this.setFile} />
         <hr />
         <Settings />
