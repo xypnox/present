@@ -1,6 +1,8 @@
 import React from 'react';
 import { Remarkable } from 'remarkable';
-let md = new Remarkable();
+let md = new Remarkable({
+  html: true // Enable HTML tags in source
+});
 let remarkable_emoji = require('remarkable-emoji');
 
 let Markdown = function({ source }) {

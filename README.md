@@ -1,8 +1,8 @@
 <div align='center'>
+    <img src='https://raw.githubusercontent.com/xypnox/present/master/public/icon.png?token=AF7KDSYRQ6OMSXPHW53VDOK5PM4FO' />
     <h1>
         Present
     </h1>
-    <img src='public/icon.png' />
     <i>A simple way to present your markdown files.</i>
 </div>
 

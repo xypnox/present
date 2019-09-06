@@ -38,7 +38,13 @@ export default function partitioner(
         slide = '';
       }
     } else {
-      if (line.startsWith('```')) {
+      if (line.startsWith('---')) {
+        if (slide) {
+          slides.push(slide);
+        }
+        slide = '';
+        densityVal = 0;
+      } else if (line.startsWith('```')) {
         codeblock = !codeblock;
         if (!codeblock) {
           densityVal += 4;
@@ -72,6 +78,5 @@ export default function partitioner(
     slides.push(slide);
   }
 
-  console.log(slides);
   return slides;
 }
