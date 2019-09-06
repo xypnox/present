@@ -9,21 +9,13 @@ html {
   }
 }
 
-$main-font: 'Inter', sans-serif;
-$head-font: 'Inter', sans-serif;
-
-$primary-color: #ff002eff;
-$secondary-color: #2f07ffff;
-
-$primary-color-light: #f2cbbd;
-$secondary-color-light: #a9b5d9;
-$secondary-color-dark: #343140;
-
 * {
   box-sizing: border-box;
 }
 
+@import 'vars.scss';
 @import 'presentation.scss';
+@import 'github-gist.css';
 
 html,
 body {

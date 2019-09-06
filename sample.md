@@ -21,6 +21,16 @@ Just upload a markdown file and we handle all the rest. The slides are distribut
 | `p`                       | Change to previous slide |
 | `q`                       | Escape presentation mode |
 
+## Code?
+
+```python
+def helloWorld():
+  print("helloWorld")
+
+while True:
+  helloWorld()
+```
+
 ## Any Gottcha's?
 
 None! :wink:

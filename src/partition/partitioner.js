@@ -47,9 +47,11 @@ export default function partitioner(
       } else if (line.startsWith('```')) {
         codeblock = !codeblock;
         if (!codeblock) {
-          densityVal += 4;
-          slide += line;
+          densityVal += 8;
         }
+        slide += line;
+      } else if (codeblock) {
+        slide += line;
       } else if (line !== '' && !codeblock) {
         let dVal = densitySingle(line);
 
@@ -78,5 +80,6 @@ export default function partitioner(
     slides.push(slide);
   }
 
+  console.log(slides);
   return slides;
 }

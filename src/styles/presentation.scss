@@ -1,3 +1,5 @@
+@import 'vars.scss';
+
 .presentation {
   height: 100vh;
   overflow: hidden;
@@ -93,8 +95,14 @@
       }
 
       tbody tr:nth-child(even) {
-        background-color: #f5f5f5;
+        background-color: $light;
       }
+    }
+
+    pre {
+      background: $lighter;
+      padding: 1rem;
+      border-left: 16px solid #eeeeee;
     }
   }
   .current-slide {
