@@ -35,6 +35,7 @@ class App extends Component {
     ) : (
       <div className='start'>
         <h1>Present</h1>
+        <p>Present Markdown files easily and effectively.</p>
         <Upload setFile={this.setFile} />
         <hr />
         <Settings />

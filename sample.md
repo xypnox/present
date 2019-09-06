@@ -10,7 +10,7 @@ Just upload a markdown file and we handle all the rest. The slides are distribut
 
 ## Images?
 
-![](https://i.imgur.com/wMACxO4.png)
+![](https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)
 
 ## Any keybindings?
 
@@ -23,4 +23,4 @@ Just upload a markdown file and we handle all the rest. The slides are distribut
 
 ## Any Gottcha's?
 
-None!
+None! :wink:

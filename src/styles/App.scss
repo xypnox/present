@@ -1,7 +1,16 @@
 // Theme
+@import url('https://rsms.me/inter/inter.css');
+html {
+  font-family: 'Inter', sans-serif;
+}
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: 'Inter var', sans-serif;
+  }
+}
 
-$main-font: 'Aileron', sans-serif;
-$head-font: 'Jost*', sans-serif;
+$main-font: 'Inter', sans-serif;
+$head-font: 'Inter', sans-serif;
 
 $primary-color: #f28f79;
 $secondary-color: #656b8c;
@@ -25,23 +34,28 @@ body {
 
 .App {
   font-family: $main-font, sans-serif;
-  font-weight: 300;
+  font-weight: normal;
   font-size: 24px;
 
   .start {
     font-family: $head-font;
-    padding: 4rem 10rem;
+    margin: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    max-width: 1000px;
+    // align-items: center;
 
     h1 {
       font-size: 5rem;
+      margin: 0;
     }
     .upload-btn-wrapper {
       position: relative;
       overflow: hidden;
       display: inline-block;
+      margin: 1rem 0;
       input[type='file'] {
         font-size: 100px;
         position: absolute;

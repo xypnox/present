@@ -71,6 +71,7 @@ function Presentation({ slides, reset }) {
         setFullScreen(!fullScreen);
       }
     };
+
     document.body.addEventListener('keypress', handleKeyPress);
   });
 
